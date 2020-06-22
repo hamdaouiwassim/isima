@@ -42,7 +42,7 @@
    <aside class="menu-sidebar2">
     <div class="logo">
     <a href="{{ route('home')}}">
-            <img src="{{ asset('isima.png') }}" style="width: 40% !important;" />
+            <img src="{{ asset('isima.png') }}" style="width: 40% !important;"  />
         </a>
     </div>
     <div class="menu-sidebar2__content js-scrollbar1">
@@ -64,18 +64,18 @@
             <ul class="list-unstyled navbar__list">
                 <li class="active has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fa fa-users"></i>Enseignants
+                        <i class="fa fa-users"></i>Avies
                         <span class="arrow">
                             <i class="fas fa-angle-down"></i>
                         </span>
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="{{ route('enseignants') }}">
+                            <a href="{{ route('aviesenseignants') }}">
                                 <i class="fa fa-list"></i>Liste</a>
                         </li>
                         <li>
-                            <a href="{{ route('enseignantform') }}">
+                            <a href="{{ route('avieform') }}">
                                 <i class="fa fa-plus-square"></i>Ajouter</a>
                         </li>
                        
@@ -84,83 +84,46 @@
 
                 <li class="active has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>Etudiants
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>Messagerie
                         <span class="arrow">
                             <i class="fas fa-angle-down"></i>
                         </span>
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="{{ route('etudiants') }}">
+                            <a href="{{ route('messages') }}">
+                                <i class="fa fa-list"></i>Discussion</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('messageform') }}">
+                                <i class="fa fa-plus-square"></i>Envoyer une message</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+
+                
+
+                <li class="active has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fa fa-th"></i>Support pedagogique
+                        <span class="arrow">
+                            <i class="fas fa-angle-down"></i>
+                        </span>
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ route('supports')}}">
                                 <i class="fa fa-list"></i>Liste</a>
                         </li>
                         <li>
-                            <a href="{{ route('etudiantform') }}">
+                            <a href="{{ route('supportform') }}">
                                 <i class="fa fa-plus-square"></i>Ajouter</a>
                         </li>
                        
                     </ul>
                 </li>
 
-                <li class="active has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fa fa-flag"></i>Les avis
-                        <span class="arrow">
-                            <i class="fas fa-angle-down"></i>
-                        </span>
-                    </a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="index.html">
-                                <i class="fa fa-list"></i>Liste</a>
-                        </li>
-                        <li>
-                            <a href="index2.html">
-                                <i class="fa fa-plus-square"></i>Ajouter</a>
-                        </li>
-                       
-                    </ul>
-                </li>
-
-                <li class="active has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fa fa-th"></i>Fillieres
-                        <span class="arrow">
-                            <i class="fas fa-angle-down"></i>
-                        </span>
-                    </a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{ route('fillieres')}}">
-                                <i class="fa fa-list"></i>Liste</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('filliereform') }}">
-                                <i class="fa fa-plus-square"></i>Ajouter</a>
-                        </li>
-                       
-                    </ul>
-                </li>
-
-                <li class="active has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fa fa-book"></i>Matieres
-                        <span class="arrow">
-                            <i class="fas fa-angle-down"></i>
-                        </span>
-                    </a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{ route('matieres')}}">
-                                <i class="fa fa-list"></i>Liste</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('matiereform') }}">
-                                <i class="fa fa-plus-square"></i>Ajouter</a>
-                        </li>
-                       
-                    </ul>
-                </li>
 
                 
             </ul>

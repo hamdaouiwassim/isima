@@ -25,7 +25,8 @@
                                             <li class="list-inline-item">Dashboard</li>
                                         </ul>
                                     </div>
-                                   
+                                    <a href="{{ route('avieform')}}" class="au-btn au-btn-icon au-btn--green">
+                                        <i class="zmdi zmdi-plus"></i>Ajouter un avie</a>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +36,36 @@
             <!-- END BREADCRUMB-->
 
            <section>
-           
+            <div class="user-data m-b-30">
+                <h3 class="title-3 m-b-30">
+                    <i class="zmdi zmdi-account-calendar"></i>Les avies</h3>
+                    <hr >
+                
+                <div class="table-responsive">
+                    <div class="col-10 offset-1">
+                       <table>
+                           <thead>
+                               <th>Type</th>
+                               <th>Matiere</th>
+                               <th>Date</th>
+                               <th>Action</th>
+                           </thead>
+                           <tbody>
+                               @foreach ($avies as $avie)
+                               <tr>
+                               <td>{{ $avie->type }}</td>
+                                                <td>{{ $avie->idmatiere }}</td>
+                                                <td>{{ $avie->date }}</td>
+                                                <td></td>
+                                </tr>
+                               @endforeach
+                              
+                           </tbody>
+                       </table>
+                    </div>
+                </div>
+                
+            </div>
            </section>
      
 
@@ -46,7 +76,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
                             </div>
                         </div>
                     </div>

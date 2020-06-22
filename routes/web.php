@@ -43,3 +43,22 @@ Route::get('/matieres', 'MatieresController@index')->name('matieres');
 Route::get('/matiere/add', 'MatieresController@create')->name('matiereform');
 Route::post('/matiere/add/db', 'MatieresController@add')->name('matierecreate');
 Route::get('/matiere/{id}/delete', 'MatieresController@destroy')->name('matieredestroy');
+
+/** les avies */
+Route::get('/avies', 'AviesController@index')->name('avies');
+Route::get('/enseignants/avies', 'AviesController@aviesenseignants')->name('aviesenseignants');
+Route::get('/avie/add', 'AviesController@create')->name('avieform');
+Route::post('/avie/add/db', 'AviesController@add')->name('aviecreate');
+Route::get('/avie/{id}/delete', 'AviesController@destroy')->name('aviedestroy');
+
+/** les messages */
+Route::get('/messages', 'MessagesController@index')->name('messages');
+Route::get('/message/add', 'MessagesController@create')->name('messageform');
+Route::post('/message/add/db', 'MessagesController@add')->name('messagecreate');
+Route::get('/message/{id}/delete', 'MessagesController@destroy')->name('messagedestroy');
+
+/** les supports */
+Route::get('/supports', 'SupportsController@index')->name('supports');
+Route::get('/support/add', 'SupportsController@create')->name('supportform');
+Route::post('/support/add/db', 'SupportsController@add')->name('supportcreate');
+Route::get('/support/{id}/delete', 'SupportsController@destroy')->name('supportdestroy');

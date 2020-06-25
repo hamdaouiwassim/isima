@@ -57,8 +57,14 @@ Route::get('/message/add', 'MessagesController@create')->name('messageform');
 Route::post('/message/add/db', 'MessagesController@add')->name('messagecreate');
 Route::get('/message/{id}/delete', 'MessagesController@destroy')->name('messagedestroy');
 
+Route::get('/discussion/{id}', 'MessagesController@discussion')->name('discussionform');
+
 /** les supports */
 Route::get('/supports', 'SupportsController@index')->name('supports');
 Route::get('/support/add', 'SupportsController@create')->name('supportform');
 Route::post('/support/add/db', 'SupportsController@add')->name('supportcreate');
 Route::get('/support/{id}/delete', 'SupportsController@destroy')->name('supportdestroy');
+Route::get('/support/{id}/modify', 'SupportsController@modify')->name('supportmodify');
+Route::post('/support/{id}/modify/db', 'SupportsController@supportmodifydb')->name('supportmodifydb');
+
+Route::get('/profile', 'HomeController@profile')->name('profile');

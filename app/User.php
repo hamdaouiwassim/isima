@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'roles' ,
+        'name', 'email', 'password', 'roles' , 'avatar' ,
     ];
 
     /**
@@ -48,6 +48,9 @@ class User extends Authenticatable
     }
     public function admin(){
         return $this->hasOne('App\Admin','iduser','id');
+    }
+    public function message(){
+        return $this->hasMany('App\Message','idemetteur','id');
     }
 
     

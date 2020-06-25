@@ -162,6 +162,26 @@
                     </ul>
                 </li>
 
+                <li class="active has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>Messagerie
+                        <span class="arrow">
+                            <i class="fas fa-angle-down"></i>
+                        </span>
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ route('messages') }}">
+                                <i class="fa fa-list"></i>Discussion</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('messageform') }}">
+                                <i class="fa fa-plus-square"></i>Envoyer une message</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+
                 
             </ul>
         </nav>
@@ -236,7 +256,7 @@
                     <div class="setting-menu js-right-sidebar d-none d-lg-block">
                         <div class="account-dropdown__body">
                             <div class="account-dropdown__item">
-                                <a href="#">
+                                <a href="/profile">
                                     <i class="zmdi zmdi-account"></i>Account</a>
                             </div>
                             <div class="account-dropdown__item">

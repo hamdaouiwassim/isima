@@ -32,4 +32,13 @@ class HomeController extends Controller
         }
         
     }
+    public function profile(){
+        if (Auth::user()->roles == "Admin"){
+            return view('admins.profile');
+        }else if (Auth::user()->roles == "Etudiant"){
+            return view('etudiants.profile');
+        }else{
+            return view('enseignants.profile');
+        } 
+    }
 }

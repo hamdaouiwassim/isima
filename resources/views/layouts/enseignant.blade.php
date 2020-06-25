@@ -71,7 +71,7 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="{{ route('aviesenseignants') }}">
+                        <a href="{{ route('aviesenseignants') }}">
                                 <i class="fa fa-list"></i>Liste</a>
                         </li>
                         <li>
@@ -199,7 +199,7 @@
                     <div class="setting-menu js-right-sidebar d-none d-lg-block">
                         <div class="account-dropdown__body">
                             <div class="account-dropdown__item">
-                                <a href="#">
+                                <a href="/profile">
                                     <i class="zmdi zmdi-account"></i>Account</a>
                             </div>
                             <div class="account-dropdown__item">

@@ -95,6 +95,13 @@ class AviesController extends Controller
     public function destroy($id)
     {
         //
+        $support = Avie::find($id);
+        $support->delete();
+        if (auth()->user()->roles == "Admin" ){
+            return redirect('/');
+        }else{
+            return redirect('/enseignants/avies');
+        }
     }
     public function aviesenseignants(){
         $avies = Avie::where('iduser',auth()->user()->id)->get();

@@ -41,9 +41,8 @@
                     <i class="zmdi zmdi-account-calendar"></i>Les avies</h3>
                     <hr >
                 
-                <div class="table-responsive">
-                    <div class="col-10 offset-1">
-                       <table>
+                    <div class="table-responsive table-data">
+                        <table class="table">
                            <thead>
                                <th>Type</th>
                                <th>Matiere</th>
@@ -54,16 +53,16 @@
                                @foreach ($avies as $avie)
                                <tr>
                                <td>{{ $avie->type }}</td>
-                                                <td>{{ $avie->idmatiere }}</td>
+                                                <td>{{ $avie->matiere->nom }}</td>
                                                 <td>{{ $avie->date }}</td>
-                                                <td></td>
+                               <td><a href="" class="btn btn-success">Modifier</a> <a class="btn btn-danger" href="{{ route('aviedestroy',['id'=>$avie->id])}}">Supprimer</a></td>
                                 </tr>
                                @endforeach
                               
                            </tbody>
                        </table>
                     </div>
-                </div>
+               
                 
             </div>
            </section>

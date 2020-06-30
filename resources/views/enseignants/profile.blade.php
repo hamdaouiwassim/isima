@@ -9,7 +9,7 @@
           
                         <div class="row p-5">
                             <div class="col-md-12 p-5">
-                                <form action="" method="post" >
+                            <form action="{{ route('UpdateProfile')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                        
                                       
@@ -19,7 +19,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="prenom" class="control-label mb-1">Prenom</label>
-                                            <input  name="prenom" type="text" class="form-control" value={{ auth()->user()->enseignant->prenom }} >
+                                            <input  name="prenom" type="text" class="form-control" value="{{ auth()->user()->enseignant->prenom }}" >
                                         </div>
                                         <div class="form-group">
                                             <label for="nom" class="control-label mb-1">Photo</label>

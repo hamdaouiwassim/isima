@@ -46,8 +46,12 @@ Route::get('/matiere/{id}/delete', 'MatieresController@destroy')->name('matiered
 
 /** les avies */
 Route::get('/avies', 'AviesController@index')->name('avies');
+Route::get('/avies/{type}', 'AviesController@aviesType')->name('aviesType');
+Route::get('/avies/examan/add', 'AviesController@avieexaman')->name('avieformexaman');
 Route::get('/enseignants/avies', 'AviesController@aviesenseignants')->name('aviesenseignants');
 Route::get('/avie/add', 'AviesController@create')->name('avieform');
+Route::get('/avie/edit/{id}', 'AviesController@edit')->name('avieEdit');
+Route::post('/avie/update', 'AviesController@update')->name('avieUpdate');
 Route::post('/avie/add/db', 'AviesController@add')->name('aviecreate');
 Route::get('/avie/{id}/delete', 'AviesController@destroy')->name('aviedestroy');
 
@@ -68,3 +72,18 @@ Route::get('/support/{id}/modify', 'SupportsController@modify')->name('supportmo
 Route::post('/support/{id}/modify/db', 'SupportsController@supportmodifydb')->name('supportmodifydb');
 
 Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::post('/profile/update','HomeController@Update')->name('UpdateProfile');
+
+
+/** Les stages */
+Route::get('/stagepfe', 'StagesController@create')->name('stageCreate');
+Route::post('/stagepfe/add/db', 'StagesController@store')->name('stageStore');
+
+Route::get('/stages/all', 'StagesController@index')->name('stages');
+Route::get('/stage/{id}/aime', 'StagesController@Notif')->name('stageNotif');
+Route::get('/stage/{id}/valide', 'StagesController@valide')->name('stagevalide');
+Route::get('/stage/{id}/refue', 'StagesController@refue')->name('stagerefue');
+
+
+
+

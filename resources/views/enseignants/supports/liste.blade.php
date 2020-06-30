@@ -70,10 +70,8 @@
                                     </label>
                                 </td>
                                 <td>
-                                    
                                         <h6>{{ $support->nom }}</h6>
-                                        
-                                    
+                                           
                                 </td>
                                 <td>
 

@@ -75,7 +75,15 @@
                                             
                                     </select>
                                     </div>  
-
+                                    <div class="form-group">
+                                        <label for="prenom" class="control-label mb-1">Filliere</label>
+                                        <select  name="idfilliere"  class="form-control"  >
+                                            @foreach ($fillieres as $filliere)
+                                                    <option value="{{ $filliere->id }}">{{ $filliere->libelle }}</option>
+                                            @endforeach
+                                            
+                                    </select>
+                                    </div>
                                 
 
                                   

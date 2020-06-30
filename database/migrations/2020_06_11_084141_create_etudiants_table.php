@@ -22,6 +22,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('sexe');
             $table->string('nationalite');
             $table->string('numinscription');
+            $table->integer('idfilliere');
             $table->timestamps();
         });
     }

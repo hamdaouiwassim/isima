@@ -17,7 +17,9 @@ class MessagesController extends Controller
     public function create()
     {
         //
-        $users = User::where('id', '!=', auth()->user()->id )->get();
+        $users = User::where('id', '!=', auth()->user()->id )
+                            ->where('roles', '!=', "Admin" )
+                            ->get();
 
         if (auth()->user()->roles == "Admin" ){
             return view('admins.messages.add')->with('users',$users);
@@ -51,7 +53,9 @@ class MessagesController extends Controller
     }
 
     public function index(){
-            $users = User::where('id', '!=', auth()->user()->id )->get();
+            $users = User::where('id', '!=', auth()->user()->id )
+                            ->where('roles', '!=', "Admin" )
+                            ->get();
             $messages = Message::where('idrecepteur',auth()->user()->id)
                                 ->orWhere('idemetteur',auth()->user()->id)
                                 ->orderBy('created_at')

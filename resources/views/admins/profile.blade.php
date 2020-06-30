@@ -38,8 +38,23 @@
             </section>
             <!-- END BREADCRUMB-->
 
-           <section>
-           
+           <section class="p-5">
+            <form action="{{ route('UpdateProfile')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                   
+                    <div class="form-group">
+                        <label for="nom" class="control-label mb-1">Photo</label>
+                        <input  name="avatar" type="file" class="form-control"  >
+                    </div>
+                    
+                    <div>
+                        <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                            <i class="fa fa-user-plus fa-lg"></i>&nbsp;
+                            <span id="payment-button-amount">Modifier</span>
+                            <span id="payment-button-sending" style="display:none;">Sending…</span>
+                        </button>
+                    </div>
+                </form>
            </section>
      
 
@@ -50,7 +65,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
                             </div>
                         </div>
                     </div>

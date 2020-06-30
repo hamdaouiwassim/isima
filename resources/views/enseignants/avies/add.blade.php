@@ -85,7 +85,15 @@
                                         <input id="date" name="date" type="date" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
                                        
                                     </div>
-                                    
+                                    <div class="form-group">
+                                        <label for="prenom" class="control-label mb-1">Filliere</label>
+                                        <select  name="idfilliere"  class="form-control"  >
+                                            @foreach ($fillieres as $filliere)
+                                                    <option value="{{ $filliere->id }}">{{ $filliere->libelle }}</option>
+                                            @endforeach
+                                            
+                                    </select>
+                                    </div>
                                     
                                    
                                     <div>

@@ -20,6 +20,7 @@ class CreateAviesTable extends Migration
             $table->string('salle')->nullable();
             $table->integer('idmatiere');
             $table->integer('iduser');
+            $table->integer('idfilliere');
             $table->string('type');
             $table->timestamps();
         });

@@ -1,4 +1,4 @@
-@extends('layouts.enseignant')
+@extends('layouts.etudiant')
 
 @section('content')
   
@@ -25,8 +25,7 @@
                                             <li class="list-inline-item">Dashboard</li>
                                         </ul>
                                     </div>
-                                    <a href="{{ route('avieform')}}" class="au-btn au-btn-icon au-btn--green">
-                                        <i class="zmdi zmdi-plus"></i>Ajouter un avie</a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -47,15 +46,14 @@
                                <th>Type</th>
                                <th>Matiere</th>
                                <th>Date</th>
-                               <th>Action</th>
+                            
                            </thead>
                            <tbody>
                                @foreach ($avies as $avie)
                                <tr>
                                <td>{{ $avie->type }}</td>
-                                                <td>{{ $avie->idmatiere }}</td>
+                                                <td>{{ $avie->matiere->nom }}</td>
                                                 <td>{{ $avie->date }}</td>
-                                                <td></td>
                                 </tr>
                                @endforeach
                               

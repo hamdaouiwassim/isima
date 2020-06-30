@@ -48,7 +48,7 @@
     <div class="menu-sidebar2__content js-scrollbar1">
         <div class="account2">
             <div class="image img-cir img-120">
-                <img src="{{ asset('dashboard/images/icon/avatar-big-01.jpg') }}" alt="John Doe" />
+            <img src="{{ asset('users') }}/{{ auth()->user()->avatar}}" alt="John Doe" />
             </div>
             <h4 class="name">{{ Auth::user()->name }}</h4>
             <a  href="{{ route('logout') }}"
@@ -62,6 +62,13 @@
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
+                <li class="active">
+                <a class="js-arrow" href="{{ route('stages')}}">
+                        <i class="fa fa-users"></i>Stages PFE
+                       
+                    </a>
+                   
+                </li>
                 <li class="active has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fa fa-users"></i>Avies
@@ -81,7 +88,7 @@
                        
                     </ul>
                 </li>
-
+             
                 <li class="active has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>Messagerie

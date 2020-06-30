@@ -12,7 +12,7 @@
                             
 
                                         <div class="col-md-12">
-                                            <form action="" method="post" >
+                                        <form action="{{ route('UpdateProfile')}}" method="post" enctype="multipart/form-data">
                                                 @csrf
                                                   
                                                     <div class="form-group">

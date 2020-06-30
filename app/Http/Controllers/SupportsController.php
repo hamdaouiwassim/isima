@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Matiere;
 use App\Support;
+use App\Filliere;
 
 class SupportsController extends Controller
 {
@@ -18,8 +19,9 @@ class SupportsController extends Controller
     public function create()
     {
         //
+        $fillieres = Filliere::all();
         $matieres = Matiere::all();
-        return view('enseignants.supports.add')->with('matieres',$matieres);
+        return view('enseignants.supports.add')->with('matieres',$matieres)->with('fillieres',$fillieres);
     }
 
     /**
@@ -33,9 +35,9 @@ class SupportsController extends Controller
         //
         $file = $request->file('document');
 
-        $fileName = uniqid().$file->getClientOriginalName();
+        $fileName = uniqid().'.'.$file->getClientOriginalExtension();
         //Move Uploaded File
-        $destinationPath = 'uploads/supportspedagogiques';
+        $destinationPath = 'uploads/supports';
         $file->move($destinationPath,$fileName);
         
         $support = new Support();
@@ -43,6 +45,7 @@ class SupportsController extends Controller
         $support->document = $fileName;
         $support->iduser = auth()->user()->enseignant->id ;
         $support->nom = $request->input('nom');
+        $support->idfilliere = $request->input('idfilliere');
         $support->save();
         return redirect("/supports");
 
@@ -50,8 +53,14 @@ class SupportsController extends Controller
     }
 
     public function index(){
+            if (auth()->user()->roles == "Etudiant"){
+                $supports = Support::where('idfilliere',auth()->user()->etudiant->idfilliere)->get();
+            return view('etudiants.supports.liste')->with('supports',$supports);
+            }
             $supports = Support::where('iduser',auth()->user()->enseignant->id)->get();
             return view('enseignants.supports.liste')->with('supports',$supports);
+
+            
     }
 
     public function destroy($id){

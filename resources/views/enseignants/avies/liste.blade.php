@@ -55,7 +55,7 @@
                                <td>{{ $avie->type }}</td>
                                                 <td>{{ $avie->matiere->nom }}</td>
                                                 <td>{{ $avie->date }}</td>
-                               <td><a href="" class="btn btn-success">Modifier</a> <a class="btn btn-danger" href="{{ route('aviedestroy',['id'=>$avie->id])}}">Supprimer</a></td>
+                               <td><a href="{{ route('avieEdit',['id'=>$avie->id])}}" class="btn btn-success">Modifier</a> <a class="btn btn-danger" href="{{ route('aviedestroy',['id'=>$avie->id])}}">Supprimer</a></td>
                                 </tr>
                                @endforeach
                               

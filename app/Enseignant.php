@@ -11,6 +11,10 @@ class Enseignant extends Model
         return $this->belongsTo('App\User','iduser','id');
     }
 
+    public function notifications(){
+        return $this->hasMany('App\Notification','idenseignant','id');
+    }
+
 
     
 }

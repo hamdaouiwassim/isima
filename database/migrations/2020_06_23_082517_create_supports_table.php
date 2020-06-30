@@ -19,6 +19,7 @@ class CreateSupportsTable extends Migration
             $table->string("document");
             $table->integer("idmatiere");
             $table->integer("iduser");
+            $table->integer('idfilliere');
             $table->timestamps();
         });
     }

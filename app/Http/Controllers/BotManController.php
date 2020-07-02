@@ -20,10 +20,15 @@ class BotManController extends Controller
   
             if ($message == 'hi') {
                 $this->askName($botman);
-            }else{
+            }
+            elseif ($message == 'الخدمات الجامعية') {
+                $botman->reply("الخدمات الجامعية");
+			}
+            else{
                 $botman->reply("write 'hi' for testing...");
             }
-  
+			
+			
         });
   
         $botman->listen();

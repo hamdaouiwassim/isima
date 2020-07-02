@@ -5,72 +5,63 @@
 @section('content')
   
       
+           
+                                 
+                                 
+<div class="row p-5">
+    <div class="col-md-12 p-5">
+                @if ($chats->hasMorePages())
+                <div class="text-center">
 
-        
-            
-            <!-- BREADCRUMB-->
-            <section class="au-breadcrumb m-t-75">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="au-breadcrumb-content">
-                                    <div class="au-breadcrumb-left">
-                                        <span class="au-breadcrumb-span">You are here:</span>
-                                        <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                            <li class="list-inline-item active">
-                                                <a href="#">Home</a>
-                                            </li>
-                                            <li class="list-inline-item seprate">
-                                                <span>/</span>
-                                            </li>
-                                            <li class="list-inline-item">Dashboard</li>
-                                        </ul>
-                                    </div>
+                
+                        <a href="{{ $chats->nextPageUrl() }}" class="btn btn-light">
+                            voir les messages precedentes
 
-                                    <div id="messages" >
-                                        <div>
-                                            message
-                                        </div>
-                                        <div>
-                                            <form action="" method="post">
-                                                <textarea name="message" >
-
-                                                </textarea>
-                                                <input type="submit" value="Envoyer" class="btn btn-primary">
-                                            </form>
-                                        </div>
-
-                                    </div>
-                                   
+                        </a>
+                        <hr />
+                </div>
+                @endif
+                @foreach ($chats as $m)
+                @if ($m->user->roles == "Etudiant")
+                        @if ($m->iduser == Auth::user()->id )
+                                <div class="alert alert-primary text-right">
+                                    
+                                    <p style="font-size:14px"><span style="font-size:16px">  {!! nl2br(e($m->message)) !!}</p>
+                                    <span style="font-size:10px">{{ $m->created_at }}</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                        @else
+                                <div class="alert alert-secondary">
+                                    
+                                    <p style="font-size:14px"><span style="font-size:16px"> {{ $m->user->enseignant->prenom }} {{ $m->user->enseignant->nom }}  </span> : {!! nl2br(e($m->message)) !!} </p>
+                                    <span style="font-size:10px">{{ $m->created_at }}</span>
+                                </div>
+                        @endif
+                @endif
+                @endforeach
+                @if ($chats->previousPageUrl())
+                <div class="text-center">
+
+                
+                        <a href="{{ $chats->previousPageUrl() }}" class="btn btn-light">
+                            voir les messages suivants
+                        </a>
+                        <hr />
                 </div>
-            </section>
-            <!-- END BREADCRUMB-->
-
-           <section>
-           
-           </section>
-     
-
-           
-
-            <section>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-                            </div>
-                        </div>
-                    </div>
+                @endif
+                <div>
+                    <form action="/chat/ajouter" method="post">
+                        @csrf
+                        <textarea name="message" class="form-control"></textarea>
+                        <hr />
+                        <input type="submit" value="Envoyer" class="btn btn-primary">
+                    </form>
                 </div>
-            </section>
-          
 
     </div>
+</div>
+           
+       
+ 
+
 @endsection
 

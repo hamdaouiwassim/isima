@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Enseignant;
 use App\User;
 use App\Etudiant;
+use App\Filliere;
 use Hash;
 class EtudiantsController extends Controller
 {
@@ -33,6 +34,7 @@ class EtudiantsController extends Controller
         $etudiant->datenaissance =$request->input('datenaiss') ;
         $etudiant->nationalite =$request->input('nationalite') ;
         $etudiant->sexe = $request->input('sexe');
+        $etudiant->idfilliere = $request->input('idfilliere');
         $etudiant->save();
         return redirect('/etudiants');
     }
@@ -42,8 +44,8 @@ class EtudiantsController extends Controller
     public function create(){
     
         
-        
-        return view('admins.etudiants.add');
+        $fillieres = Filliere::all();
+        return view('admins.etudiants.add')->with('fillieres',$fillieres);
     }
 
     public function destroy($id){

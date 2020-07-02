@@ -94,6 +94,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group">
+                                            <label for="cc-exp" class="control-label mb-1">Filliere</label>
+                                            <select name="idfilliere" id="" class="form-control">
+                                                @foreach ($fillieres as $filliere )
+                                                        <option value="{{ $filliere->id }}">{{ $filliere->libelle }}</option>
+                                                @endforeach
+                                            
+                                                
+                                            </select>
+
+                                    </div>
+                                   
                                     <div class="form-group">
                                         <label for="password" class="control-label mb-1">Nationalite</label>
                                         <input id="password" name="nationalite" type="text" class="form-control password identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-password="Please enter a valid card number" autocomplete="cc-number">

@@ -87,3 +87,7 @@ Route::get('/stage/{id}/refue', 'StagesController@refue')->name('stagerefue');
 
 
 
+route::get('/chat', 'ChatsController@show')->name('chat');
+route::post('/chat/ajouter','ChatsController@store');
+
+Route::match(['get', 'post'], '/botman', 'BotManController@handle');

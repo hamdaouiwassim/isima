@@ -53,5 +53,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Message','idemetteur','id');
     }
 
+    public function chats(){
+        return $this->hasMany('App\Chat','iduser','id');
+    }
+
     
 }

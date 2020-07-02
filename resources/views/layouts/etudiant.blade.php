@@ -110,7 +110,13 @@
                     </ul>
                 </li>
 
-                
+                <li class="">
+                <a class="js-arrow" href="{{ route('chat')}}">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>Chat
+                       
+                    </a>
+                    
+                </li>
             </ul>
         </nav>
     </div>

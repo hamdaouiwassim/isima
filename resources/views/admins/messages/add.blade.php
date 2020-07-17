@@ -1,4 +1,4 @@
-@extends('layouts.enseignant')
+@extends('layouts.admin')
 
 @section('content')
   
@@ -67,10 +67,15 @@
                                     </div>
 
                                     <div class="form-group has-success">
-                                        <label for="email" class="control-label mb-1">message</label>
-                                        <textarea name="contenu"  class="form-control cc-name valid"  ></textarea>
-                                       
+                                        <label for="contenu" class="control-label mb-1 " required>message</label>
+                                        <textarea name="contenu" id="contenu"  class="form-control cc-name  @error('title') is-invalid @enderror"  ></textarea>
+                                        
                                     </div>
+                                    @error('contenu')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                    @enderror
 
                                      
 

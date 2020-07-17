@@ -1,4 +1,4 @@
-@extends('layouts.enseignant')
+@extends('layouts.admin')
 
 @section('content')
   
@@ -50,17 +50,15 @@
                                     <h3 class="text-center title-2">Coordonnes</h3>
                                 </div>
                                 <hr>
-                            <form action="{{ route('aviecreate')}}" method="post" >
+                            <form action="{{ route('avieUpdate')}}" method="post" >
                                 @csrf
                                     
-                                  
+                                  <input type="hidden" name="idavie" value="{{ $avie->id }}">
                                     <div class="form-group">
                                         <label for="nom" class="control-label mb-1">Type</label>
-                                        <select  name="type"   class="form-control"  >
-                                                <option >Examan</option>
+                                        <select  name="type"  class="form-control"  >
                                                 <option >Rattrapage</option>
-                                                <option >Absence</option>
-                                                
+                                                <option>Absence</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -74,17 +72,17 @@
                                     </div>
                                     <div class="form-group has-success">
                                         <label for="email" class="control-label mb-1">salle</label>
-                                        <input id="number" name="salle" type="number" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                                    <input id="number" name="salle" type="number"  class="form-control cc-name valid" value="{{ $avie->salle }}">
                                        
                                     </div>
                                     <div class="form-group has-success">
-                                        <label for="email" class="control-label mb-1">salle</label>
-                                        <input id="time" name="time" type="time" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                                        <label for="email" class="control-label mb-1">heure</label>
+                                        <input id="time" name="time" type="time" class="form-control cc-name valid" value="{{ $avie->time }}">
                                        
                                     </div>
                                     <div class="form-group has-success">
                                         <label for="email" class="control-label mb-1">Date</label>
-                                        <input id="date" name="date" type="date" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                                        <input value="{{ $avie->date }}" name="date" type="date" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
                                        
                                     </div>
                                     <div class="form-group">
@@ -101,7 +99,7 @@
                                     <div>
                                         <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                                             <i class="fa fa-user-plus fa-lg"></i>&nbsp;
-                                            <span id="payment-button-amount">Ajouter</span>
+                                            <span id="payment-button-amount">Modifier</span>
                                             <span id="payment-button-sending" style="display:none;">Sending…</span>
                                         </button>
                                     </div>

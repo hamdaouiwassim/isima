@@ -25,8 +25,7 @@
                                             <li class="list-inline-item">Dashboard</li>
                                         </ul>
                                     </div>
-                                    <a href="{{ route('avieform')}}" class="au-btn au-btn-icon au-btn--green">
-                                        <i class="zmdi zmdi-plus"></i>Ajouter un avie</a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -47,7 +46,7 @@
                                <th>Type</th>
                                <th>Matiere</th>
                                <th>Date</th>
-                               <th>Action</th>
+                               
                            </thead>
                            <tbody>
                                @foreach ($avies as $avie)
@@ -55,7 +54,6 @@
                                <td>{{ $avie->type }}</td>
                                                 <td>{{ $avie->matiere->nom }}</td>
                                                 <td>{{ $avie->date }}</td>
-                               <td><a href="{{ route('avieEdit',['id'=>$avie->id])}}" class="btn btn-success">Modifier</a> <a class="btn btn-danger" href="{{ route('aviedestroy',['id'=>$avie->id])}}">Supprimer</a></td>
                                 </tr>
                                @endforeach
                               

@@ -80,7 +80,26 @@
                                 </td>
                                 
                                 <td>
-                                <a href="{{ route('stageNotif',['id'=> $stage->id ]) }}" class="btn btn-success">J'aime</a>
+                                    @php
+                                    $existe=false    
+                                   @endphp
+                                    @foreach ($stage->notifications  as $n )
+                                        @if($n->enseignant->id == auth()->user()->enseignant->id)
+                                            @php
+                                             $existe=true    
+                                            @endphp
+
+                                        @endif
+                                        
+                                    @endforeach
+
+                                    @if(!$existe)
+                                    <a href="{{ route('stageNotif',['id'=> $stage->id ]) }}" class="btn btn-success">J'aime</a>
+                                    @else
+                                    deja aimee 
+                                    @endif
+                                    
+                                        
                                 
                                 </td>
                              

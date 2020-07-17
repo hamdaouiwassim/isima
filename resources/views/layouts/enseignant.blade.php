@@ -7,6 +7,7 @@
         <meta name="description" content="au theme template">
         <meta name="author" content="Hau Nguyen">
         <meta name="keywords" content="au theme template">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     
         <!-- Title Page-->
         <title>Dashboard 2</title>
@@ -81,10 +82,7 @@
                         <a href="{{ route('aviesenseignants') }}">
                                 <i class="fa fa-list"></i>Liste</a>
                         </li>
-                        <li>
-                            <a href="{{ route('avieform') }}">
-                                <i class="fa fa-plus-square"></i>Ajouter</a>
-                        </li>
+                        
                        
                     </ul>
                 </li>
@@ -408,6 +406,94 @@
 
     <!-- Main JS-->
     <script src="{{ asset('dashboard/js/main.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+    getAllMessages();
+    setInterval(function(){getAllMessages()}, 1000);
+     
+    $('#chat-text').keypress(function(e){
+            
+            if ( e.which == 13 ){ // keypress entrer 
+                e.preventDefault();
+                
+                let message = $(this).val();
+                let url = $(this).data('url');
+                
+                let data = {
+                    '_token' : '{{ csrf_token() }}',
+                    message 
+                }
+                //console.log(data);
+               $.ajax({
+                    url : url ,
+                    method : 'POST' ,
+                    data,
+                    success: function(res){
+                       // console.log(res); 
+                       
+                        
+                    },
+                    error : function(err){
+                        //console.log(err);
+                    }
 
+                })
+                $('#form-message').trigger("reset"); 
+                getAllMessages();
+            }
+    })//end keypress
+
+    
+    function getAllMessages(){
+
+    
+    $.ajax({
+                    url : '/getAllMessages' ,
+                    method : "GET" ,
+                    
+                    success: function(res){
+                        //console.log(res);
+                       
+                        $("#chat").empty();
+                        $.each(res, function( i, message ) {
+                            //alert(message.message);
+                            
+                                if( message.iduser == {{ auth()->user()->id }} ){
+                                    $("#chat").append(
+                                    `<div class='alert alert-primary text-right'>`+
+                                    `<p style="font-size:14px"><span style="font-size:16px">`+message.message+ `</p>`+
+                                    `<span style="font-size:10px">`+new Date(message.created_at).toLocaleString() +`</span>`+
+                                    `</div>`
+                                   
+                                    );
+                                }else{
+                                    $("#chat").append(
+                                    `<div class='alert alert-success text-left'>`+
+                                    `<span style="font-size:16px;color:blue">`+message.user.name+`</span> a dit : `+
+                                    `<p style="font-size:14px"><span style="font-size:16px">`+message.message+ `</p>`+
+                                    `<span style="font-size:10px">`+new Date(message.created_at).toLocaleString() +`</span>`+
+                                    `</div>`
+                                   
+                                    );
+
+                                }
+                                                
+                               
+                                
+                            
+                           
+                            
+                        });
+                            
+                    },
+                    error : function(err){
+                        //console.log(err);
+                    }
+                    
+
+                })
+                
+    }   
+        </script>
 </body>
 </html>

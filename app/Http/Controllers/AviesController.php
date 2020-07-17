@@ -104,7 +104,7 @@ class AviesController extends Controller
         $avie = Avie::find($id);
         $fillieres = Filliere::all();
         $matieres = Matiere::all();
-        return view('enseignants.avies.edit')->with('avie',$avie)->with('matieres',$matieres)->with('fillieres',$fillieres);
+        return view('admins.avies.edit')->with('avie',$avie)->with('matieres',$matieres)->with('fillieres',$fillieres);
    
 
     }
@@ -142,11 +142,8 @@ class AviesController extends Controller
         //
         $support = Avie::find($id);
         $support->delete();
-        if (auth()->user()->roles == "Admin" ){
-            return redirect('/');
-        }else{
-            return redirect('/enseignants/avies');
-        }
+        return redirect()->back();
+       
     }
     
     public function aviesenseignants(){

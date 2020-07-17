@@ -20,13 +20,12 @@ class StagesController extends Controller
     
     public function Notif($id){
 
-        if (count(Notification::where('idenseignant',auth()->user()->enseignant->id)->where('idstage',$id)->get() ) == 0 ){
-            
-        $notif = new Notification();
-        $notif->idenseignant = auth()->user()->enseignant->id;
-        $notif->idstage = $id;
-        
-        $notif->save();
+        if (count(Notification::where('idenseignant',auth()->user()->enseignant->id)->where('idstage',$id)->get() ) == 0 ){   
+                $notif = new Notification();
+                $notif->idenseignant = auth()->user()->enseignant->id;
+                $notif->idstage = $id;
+                
+                $notif->save();
         }
         return redirect("/stages/all");
             

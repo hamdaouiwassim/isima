@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Message;
+use Illuminate\Support\Facades\Validator;
 class MessagesController extends Controller
 {
       //
@@ -39,8 +40,9 @@ class MessagesController extends Controller
      */
     public function add(Request $request)
     {
-       
-        
+        $request->validate([
+            'contenu' => 'required',
+        ]);
         $message = new Message();
         $message->idemetteur = auth()->user()->id;
         $message->idrecepteur = $request->input('idrecepteur');
